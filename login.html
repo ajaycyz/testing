@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sakalani Public School | Login & Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <a class="back-home" href="index.html">← Back to Home</a>
+      <section class="auth-card">
+        <h1>Student Portal</h1>
+        <p>Login or create an account for admissions and updates.</p>
+
+        <div class="tab-buttons">
+          <button class="tab active" data-tab="login">Login</button>
+          <button class="tab" data-tab="register">Register</button>
+        </div>
+
+        <form id="login" class="form active" action="#">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+          <label>Password</label>
+          <input type="password" placeholder="Enter password" required />
+          <button class="btn btn-red" type="submit">Login</button>
+        </form>
+
+        <form id="register" class="form" action="#">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required />
+          <label>Mobile Number</label>
+          <input type="tel" placeholder="Enter mobile number" required />
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+          <label>Password</label>
+          <input type="password" placeholder="Create password" required />
+          <button class="btn btn-red" type="submit">Register</button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const tabs = document.querySelectorAll('.tab');
+      const forms = document.querySelectorAll('.form');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((btn) => btn.classList.remove('active'));
+          forms.forEach((form) => form.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>
