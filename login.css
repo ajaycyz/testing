@@ -1,0 +1,83 @@
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #fff4d3, #f8f8f8);
+  padding: 2rem 1rem;
+}
+
+.back-home {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgb(0 0 0 / 12%);
+  padding: 1.4rem;
+}
+
+.auth-card h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.auth-card > p {
+  margin-top: 0;
+  color: #555;
+}
+
+.tab-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.tab {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 700;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #c62828;
+  color: #fff;
+  border-color: #c62828;
+}
+
+.form {
+  display: none;
+  gap: 0.5rem;
+}
+
+.form.active {
+  display: grid;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input {
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.4rem;
+  font: inherit;
+}
+
+.form .btn {
+  margin-top: 0.6rem;
+  width: 100%;
+}
