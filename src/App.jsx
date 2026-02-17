@@ -1,19 +1,27 @@
-const cards = [
+const videos = [
   {
-    number: '01',
+    id: '01.',
     title: 'Supply & Demand',
-    body: 'Exposing your property to the most buyers and appealing to them.',
+    description: 'Exposing your property to the most buyers and positioning it according to demand.',
   },
   {
-    number: '02',
+    id: '02.',
     title: 'Pricing Strategy',
-    body: 'The right value for optimal market results.',
+    description: 'The right value for optimal results and stronger buyer response.',
   },
 ]
 
-const process = [
-  { number: '01', title: 'Prepare', body: 'Professional photos and strategy setup to ensure listing quality.' },
-  { number: '02', title: 'Launch', body: 'Post to active channels and target motivated buyers.' },
+const processSteps = [
+  {
+    id: '01',
+    name: 'Prepare',
+    text: 'Professional photos, listing copy, and strategy planning to position your land effectively.',
+  },
+  {
+    id: '02',
+    name: 'Launch',
+    text: 'Multi-channel promotion and targeted buyer outreach to maximize visibility quickly.',
+  },
 ]
 
 const faqs = [
@@ -26,129 +34,215 @@ const faqs = [
 
 export default function App() {
   return (
-    <div className="page">
-      <section className="hero section-image">
-        <header className="topbar">
-          <div className="logo">
-            <span>LAND FOR SALE</span>
-            <strong>LANDGUYS</strong>
+    <main className="landing">
+      <section className="hero section-photo">
+        <div className="overlay" />
+        <header className="top-nav content-width">
+          <div className="brand">
+            <p>LAND FOR SALE</p>
+            <h1>LANDGUYS</h1>
           </div>
-          <div className="menu">☰</div>
+          <button className="menu-btn" aria-label="menu">☰</button>
         </header>
-        <div className="hero-content">
-          <p className="tagline">EFFORTLESSLY SELL YOUR LAND FASTER FOR <em>TOP MARKET PRICE.</em></p>
-          <button className="btn">SEE HOW LUKE WORKS</button>
+
+        <div className="hero-copy content-width">
+          <h2>
+            EFFORTLESSLY SELL
+            <br />
+            YOUR LAND FASTER FOR
+            <br />
+            <span>TOP MARKET PRICE.</span>
+          </h2>
+          <button className="accent-btn">SEE HOW LUKE WORKS</button>
         </div>
       </section>
 
-      <section className="expertise-strip">
-        <strong>LOCAL EXPERTISE</strong> WITHIN REACH
+      <section className="floating-strip">
+        <div className="content-width strip-inner">
+          <strong>LOCAL EXPERTISE</strong>
+          <span>WITHIN REACH</span>
+        </div>
       </section>
 
-      <section className="section dark center">
-        <h2>LEARN ABOUT LUKE’S PROCESS FOR GETTING THE OPTIMAL PRICE FOR YOUR PROPERTY</h2>
-        <div className="card-grid">
-          {cards.map((item) => (
-            <article key={item.number} className="video-card">
-              <div className="play">▶</div>
-              <h3>{item.number}. {item.title}</h3>
-              <p>{item.body}</p>
+      <section className="dark section video-section">
+        <div className="content-width">
+          <h3>
+            LEARN ABOUT LUKE’S PROCESS FOR GETTING
+            <br />
+            THE OPTIMAL PRICE FOR YOUR PROPERTY
+          </h3>
+
+          <div className="video-grid">
+            {videos.map((item) => (
+              <article key={item.id} className="video-card">
+                <div className="play-icon">▶</div>
+                <p className="video-title">{item.id} {item.title}</p>
+                <p className="video-desc">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="expect-section section-photo">
+        <div className="content-width split">
+          <div className="photo-block" />
+          <article className="expect-card">
+            <h3>WHAT TO EXPECT</h3>
+            <h4>AT A LISTING APPOINTMENT</h4>
+            <ol>
+              <li>Discover your motivation</li>
+              <li>Create a custom marketing plan</li>
+              <li>Price your property</li>
+            </ol>
+            <button className="small-accent">Call Luke</button>
+          </article>
+        </div>
+      </section>
+
+      <section className="listing-process dark section">
+        <div className="content-width process-layout">
+          <div className="left-copy">
+            <h3>THE LISTING PROCESS</h3>
+            <p>Each listing requires an individual approach to position it to the market.</p>
+          </div>
+
+          <div className="process-cards">
+            {processSteps.map((step) => (
+              <article key={step.id} className="process-card">
+                <div className="row-head">
+                  <span>{step.id}</span>
+                  <h4>{step.name}</h4>
+                </div>
+                <div className="card-image" />
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="valuation section slate">
+        <div className="content-width valuation-layout">
+          <div>
+            <h3>
+              TAKE ADVANTAGE
+              <br />
+              <span>OF A STRONG</span>
+              <br />
+              SELLER’S MARKET
+            </h3>
+            <p>
+              Land values are strong and buyer demand remains active.
+              Request a fast estimate and selling strategy.
+            </p>
+          </div>
+
+          <form className="mini-form">
+            <h4>FIND OUT THE VALUE OF YOUR PROPERTY</h4>
+            <input placeholder="Name" />
+            <input placeholder="Email" />
+            <input placeholder="Phone" />
+            <button type="button" className="accent-btn">Get Your Evaluation</button>
+          </form>
+        </div>
+      </section>
+
+      <section className="stats-band dark">
+        <div className="content-width stats-grid">
+          <div>
+            <p className="label">LISTING STATS FOR 2021</p>
+            <button className="small-accent">View Lukes Listings</button>
+          </div>
+          <div>
+            <p className="value">80%</p>
+            <p className="label">Growth in Sale Volume</p>
+          </div>
+          <div>
+            <p className="value">64%</p>
+            <p className="label">Increase in Sales</p>
+          </div>
+          <div>
+            <p className="value">#1</p>
+            <p className="label">For Wisconsin LandGuys</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="testimonials section textured">
+        <div className="content-width">
+          <h3>FIRSTHAND EXPERIENCES FROM PAST CLIENTS</h3>
+          <div className="testimonial-grid">
+            <article>
+              <h4>PLEASURE TO WORK WITH</h4>
+              <p>Great communication, realistic pricing advice, and a smooth closing process from start to finish.</p>
             </article>
+            <article>
+              <h4>PROFESSIONAL</h4>
+              <p>Clear updates, strong marketing execution, and a practical strategy tailored to our property.</p>
+            </article>
+            <article>
+              <h4>VERY KNOWLEDGEABLE</h4>
+              <p>Excellent local expertise that helped us make decisions confidently and secure strong buyer interest.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="profile section-photo">
+        <div className="content-width split">
+          <div className="photo-block alt" />
+          <article className="profile-card">
+            <p className="kicker">SOUTHEASTERN WISCONSIN</p>
+            <h3>LUKE WESSEL</h3>
+            <p>
+              Local land specialist focused on pricing, presentation, and targeted marketing.
+              Dedicated to helping owners sell with confidence and clarity.
+            </p>
+            <button className="small-accent">Call Luke</button>
+          </article>
+        </div>
+      </section>
+
+      <section className="faq dark section">
+        <div className="content-width">
+          <h3>YOU HAVE QUESTIONS. WE HAVE ANSWERS.</h3>
+          {faqs.map((q) => (
+            <details key={q}>
+              <summary>{q}</summary>
+              <p>We tailor timing, pricing, and marketing strategy to your land type and local demand.</p>
+            </details>
           ))}
         </div>
       </section>
 
-      <section className="two-col section-image muted">
-        <div className="placeholder image-left" />
-        <div className="panel">
-          <h3>WHAT TO EXPECT AT A LISTING APPOINTMENT</h3>
-          <ol>
-            <li>Discover your motivation</li>
-            <li>Create a custom marketing plan</li>
-            <li>Price your property</li>
-          </ol>
-          <button className="btn">Call Luke</button>
+      <section className="bottom-cta section-photo textured-edge">
+        <div className="content-width split bottom-grid">
+          <form className="mini-form compact">
+            <h3>
+              READY TO TAKE
+              <br />
+              THE NEXT STEP?
+            </h3>
+            <input placeholder="Name" />
+            <input placeholder="Email" />
+            <input placeholder="Phone" />
+            <fieldset>
+              <legend>BEST TIME TO CALL?</legend>
+              <label><input type="radio" name="time" /> AM</label>
+              <label><input type="radio" name="time" /> PM</label>
+            </fieldset>
+            <button type="button" className="accent-btn">Submit</button>
+          </form>
+          <div className="next-step-card">
+            <h3>
+              LOCAL EXPERTISE
+              <br />
+              WITHIN REACH
+            </h3>
+          </div>
         </div>
       </section>
-
-      <section className="process section dark">
-        <div className="process-intro">
-          <h3>THE LISTING PROCESS</h3>
-          <p>Each listing requires an individual approach to position it to the market.</p>
-        </div>
-        <div className="process-cards">
-          {process.map((item) => (
-            <article key={item.number} className="process-card">
-              <h4>{item.number} {item.title}</h4>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="cta-form section muted">
-        <div>
-          <h3>TAKE ADVANTAGE OF A STRONG SELLER’S MARKET</h3>
-          <p>Fill out your details and we’ll estimate your land value quickly.</p>
-        </div>
-        <form>
-          <h4>FIND OUT THE VALUE OF YOUR PROPERTY</h4>
-          <input placeholder="Name" />
-          <input placeholder="Email" />
-          <input placeholder="Phone" />
-          <button className="btn" type="button">Get Your Evaluation</button>
-        </form>
-      </section>
-
-      <section className="stats section dark">
-        <div><small>LISTING STATS</small><strong>80% Growth</strong></div>
-        <div><small>Increase in sale volume</small><strong>64% Increase</strong></div>
-        <div><small>In sales</small><strong>#1 In Wisconsin</strong></div>
-      </section>
-
-      <section className="reviews section textured">
-        <h3>FIRSTHAND EXPERIENCES FROM PAST CLIENTS</h3>
-        <div className="review-grid">
-          <article><h4>PLEASURE TO WORK WITH</h4><p>Luke consistently provided value and guidance throughout the process.</p></article>
-          <article><h4>PROFESSIONAL</h4><p>Communication and marketing strategy were excellent from start to finish.</p></article>
-          <article><h4>VERY KNOWLEDGEABLE</h4><p>Helped us get top value for our property and close with confidence.</p></article>
-        </div>
-      </section>
-
-      <section className="bio section-image">
-        <div className="placeholder image-left" />
-        <div className="panel">
-          <h3>SOUTHEASTERN WISCONSIN LUKE WESSEL</h3>
-          <p>
-            Land specialist focused on pricing accuracy, targeted marketing and negotiation.
-            Years of local expertise helping owners sell land confidently.
-          </p>
-          <button className="btn">Call Luke</button>
-        </div>
-      </section>
-
-      <section className="faq section dark">
-        <h3>YOU HAVE QUESTIONS. WE HAVE ANSWERS.</h3>
-        {faqs.map((q) => (
-          <details key={q}>
-            <summary>{q}</summary>
-            <p>Answer content placeholder matching the original layout style.</p>
-          </details>
-        ))}
-      </section>
-
-      <section className="bottom-contact section-image">
-        <form>
-          <h3>READY TO TAKE THE NEXT STEP?</h3>
-          <input placeholder="Name" />
-          <input placeholder="Email" />
-          <input placeholder="Phone" />
-          <button className="btn" type="button">Submit</button>
-        </form>
-        <div className="contact-promo">
-          <h3>LOCAL EXPERTISE WITHIN REACH</h3>
-        </div>
-      </section>
-    </div>
+    </main>
   )
 }
