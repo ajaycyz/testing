@@ -43,15 +43,21 @@ body {
 }
 
 .hero {
-  min-height: 575px;
+  min-height: 760px;
   overflow: hidden;
   padding: 24px 26px 56px;
+}
+
+.hero-photo {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.24) 40%, rgba(0, 0, 0, 0.18) 100%),
+    radial-gradient(circle at 18% 30%, #654a32 0, #3e3327 26%, #5b6676 45%, #2f333d 72%, #15171c 100%);
 }
 
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 2%, rgba(0, 0, 0, 0.25) 52%, rgba(0, 0, 0, 0.52) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.34));
 }
 
 .top-nav,
@@ -64,60 +70,145 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 12px;
+}
+
+.hero-brand {
+  text-align: center;
+  margin-left: 180px;
 }
 
 .brand p {
   margin: 0;
-  font-size: 12px;
+  font-size: 52px;
   letter-spacing: 1.8px;
+  font-weight: 500;
 }
 
 .brand h1 {
-  margin: 2px 0 0;
-  font-size: 58px;
-  line-height: 0.9;
+  margin: 6px 0 0;
+  font-size: 120px;
+  line-height: 0.8;
+  letter-spacing: 1px;
 }
 
 .menu-btn {
+  width: 54px;
   background: transparent;
-  color: #fff;
   border: 0;
-  font-size: 30px;
+  padding: 5px 0;
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.menu-btn span {
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: #fff;
 }
 
 .hero-copy {
-  margin-top: 100px;
+  margin-top: 170px;
 }
 
 .hero-copy h2 {
-  font-size: 54px;
-  line-height: 1.04;
+  font-size: 84px;
+  line-height: 1.05;
   font-style: italic;
-  margin: 0 0 18px;
+  font-weight: 300;
+  margin: 0 0 24px;
   letter-spacing: 0.2px;
+  max-width: 980px;
 }
 
 .hero-copy span {
   font-weight: 700;
 }
 
-.accent-btn,
-.small-accent {
+.watch-btn {
   border: 0;
   background: var(--accent);
   color: #fff;
+  display: inline-grid;
+  grid-template-columns: auto;
+  padding: 16px 116px 16px 24px;
+  text-align: left;
+  position: relative;
   text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.45px;
 }
 
-.accent-btn {
-  padding: 11px 18px;
+.watch-btn span {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-.small-accent {
-  padding: 8px 14px;
-  font-size: 12px;
+.watch-btn strong {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.watch-btn i {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #efefef;
+  color: #232323;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 42px;
+}
+
+.menu-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+}
+
+.menu-panel {
+  background: #15171c;
+  border: 1px solid #2f333d;
+  width: min(460px, calc(100% - 32px));
+  padding: 28px;
+  position: relative;
+}
+
+.close-menu {
+  position: absolute;
+  right: 14px;
+  top: 8px;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 22px;
+}
+
+.menu-panel nav {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.menu-panel a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+  font-style: italic;
+}
+
+.menu-panel a:hover {
+  color: var(--accent);
 }
 
 .floating-strip {
@@ -470,9 +561,38 @@ label input {
     font-size: 34px;
   }
 
-  .brand h1 {
-    font-size: 40px;
+  .brand p {
+    font-size: 24px;
   }
+
+  .brand h1 {
+    font-size: 56px;
+  }
+
+  .hero-brand {
+    margin-left: 0;
+  }
+
+  .watch-btn strong {
+    font-size: 24px;
+  }
+
+  .watch-btn span {
+    font-size: 14px;
+  }
+
+  .watch-btn i {
+    width: 58px;
+    height: 58px;
+    right: -18px;
+    font-size: 24px;
+  }
+
+  .menu-btn {
+    width: 38px;
+    gap: 6px;
+  }
+
 
   .split,
   .process-layout,

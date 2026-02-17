@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const videos = [
   {
     id: '01.',
@@ -32,17 +34,25 @@ const faqs = [
   'DO YOU EVER SELL RESIDENTIAL OR COMMERCIAL PROPERTIES?',
 ]
 
+const menuLinks = ['Properties', 'Auctions', 'About', 'Sell With Us', 'Store', 'Blog', 'Contact']
+
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <main className="landing">
-      <section className="hero section-photo">
+      <section className="hero hero-photo">
         <div className="overlay" />
         <header className="top-nav content-width">
-          <div className="brand">
+          <div className="brand hero-brand">
             <p>LAND FOR SALE</p>
             <h1>LANDGUYS</h1>
           </div>
-          <button className="menu-btn" aria-label="menu">☰</button>
+          <button className="menu-btn" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+            <span />
+            <span />
+            <span />
+          </button>
         </header>
 
         <div className="hero-copy content-width">
@@ -53,9 +63,26 @@ export default function App() {
             <br />
             <span>TOP MARKET PRICE.</span>
           </h2>
-          <button className="accent-btn">SEE HOW LUKE WORKS</button>
+          <button className="watch-btn">
+            <span>SEE HOW LUKE WORKS FOR YOU.</span>
+            <strong>WATCH HERE</strong>
+            <i>▶</i>
+          </button>
         </div>
       </section>
+
+      {menuOpen && (
+        <div className="menu-modal" role="dialog" aria-modal="true" onClick={() => setMenuOpen(false)}>
+          <div className="menu-panel" onClick={(e) => e.stopPropagation()}>
+            <button className="close-menu" aria-label="Close menu" onClick={() => setMenuOpen(false)}>✕</button>
+            <nav>
+              {menuLinks.map((item) => (
+                <a key={item} href="#">{item}</a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
 
       <section className="floating-strip">
         <div className="content-width strip-inner">
