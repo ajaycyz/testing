@@ -1,0 +1,132 @@
+/*
+Theme Name: MFB Fresh Builder
+Theme URI: https://example.com/mfb-fresh
+Author: Codex
+Description: Custom WordPress theme for MFB with Beaver Builder compatibility, project tracking, portfolio, testimonials, and lead generation sections.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 8.0
+Text Domain: mfb-fresh
+*/
+
+:root {
+  --mfb-black: #111111;
+  --mfb-white: #ffffff;
+  --mfb-orange: #eb6d1f;
+  --mfb-green: #2f8f3a;
+  --mfb-gray-500: #6b7280;
+  --mfb-gray-200: #e5e7eb;
+  --mfb-max-width: 1200px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--mfb-black);
+  background: var(--mfb-white);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: var(--mfb-orange); text-decoration: none; }
+a:hover, a:focus { color: var(--mfb-green); }
+
+.mfb-container {
+  width: min(100% - 2rem, var(--mfb-max-width));
+  margin-inline: auto;
+}
+
+.site-header,
+.site-footer { border-bottom: 1px solid var(--mfb-gray-200); }
+
+.site-header { position: sticky; top: 0; background: #fff; z-index: 20; }
+
+.site-header__inner,
+.site-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.main-navigation ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.button,
+input[type="submit"] {
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: 4px;
+  background: var(--mfb-orange);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.button--secondary {
+  background: var(--mfb-black);
+}
+
+.mfb-hero {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--mfb-gray-200);
+}
+
+.mfb-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+.mfb-section { padding: 4rem 0; }
+.mfb-section--alt { background: #fafafa; }
+
+.mfb-grid { display: grid; gap: 1rem; }
+.mfb-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mfb-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.mfb-card {
+  border: 1px solid var(--mfb-gray-200);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.mfb-process {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.mfb-lead-form input,
+.mfb-lead-form select,
+.mfb-lead-form textarea {
+  width: 100%;
+  padding: .65rem;
+  border: 1px solid var(--mfb-gray-200);
+  margin-top: .35rem;
+}
+
+.mfb-lead-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 960px) {
+  .mfb-grid--4, .mfb-grid--3, .mfb-process { grid-template-columns: 1fr 1fr; }
+  .mfb-trust-strip { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .mfb-grid--4, .mfb-grid--3, .mfb-process, .mfb-lead-form__grid, .mfb-trust-strip { grid-template-columns: 1fr; }
+}
